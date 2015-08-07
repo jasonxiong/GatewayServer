@@ -1,10 +1,3 @@
-/****************************************************************
- * @file		LotusLogAdapter.cpp
- * @see			
- * @version		2006.05.10
- * @author		Loyo.Lu
- * @content		
- ****************************************************************/
 
 #include <sys/types.h>
 #include <sys/stat.h>

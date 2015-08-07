@@ -1,25 +1,3 @@
-/**
-*@file SectionConfig.h
-*@author 高峰
-*@date 2002/06/11
-*@version 1.0
-*@history
-*	高峰      2002/05/08        1.0        建立本模块
-*	高峰      2002/05/13        1.0        增加SetItemValue字符串,
-*	OpenFile, CloseFile,
-*	LocateKeyRange
-*	高峰      2002/06/08        1.0        增加SetItemValue数字,
-*	增加GetItemValue数字
-*	高峰      2002/06/10        1.0        使GetItemValue, SetItemValue支持资源锁定
-*	高峰      2002/06/11        1.0        增加带缺省值的GetItemValue数字, GetItemValue字符串
-*@brief 实现对配置文件的读取。
-*
-*	实现对配置文件的读取。
-*	使用方法如下：
-*	1 创建本类的对象实例，在构造函数中传入配置文件的文件名
-*	2 调用成员函数IsOpen()判断是否读取成功
-*	3 调用GetItemValue得到具体的值
-*/
 
 #ifndef __SECTION_CONFIG_HPP__
 #define __SECTION_CONFIG_HPP__

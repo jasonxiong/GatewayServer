@@ -1,12 +1,3 @@
-/**
-*@file Statistic
-*@author derekyu
-*@date 2009-11-20
-*@version 1.0
-*@brief 基础统计类
-*
-*	
-*/
 
 #ifndef __STATISTIC_HPP__
 #define __STATISTIC_HPP__

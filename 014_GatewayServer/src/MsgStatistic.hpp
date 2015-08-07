@@ -1,12 +1,3 @@
-/**
-*@file MsgStatistic.hpp
-*@author derekyu
-*@date 2009-11-20
-*@version 1.0
-*@brief 消息统计类
-*
-*	
-*/
 
 #ifndef __MSG_STATISTIC_HPP__
 #define __MSG_STATISTIC_HPP__

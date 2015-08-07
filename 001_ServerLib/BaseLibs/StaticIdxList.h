@@ -1,22 +1,3 @@
-/**
- * Copyright (c) 2013, Tencent
- * All rights reserved.
- *
- * @file IdxList.h
- * @brief 固定下标链表<br />
- *        可用于共享内存<br />
- * @warning 注意：如果是新创建的结构，需要执行construct函数初始化
- * @note 测试编译器 GCC 4.7.2, VC 11.0
- *
- * @version 1.0
- * @author owentou, owentou@tencent.com
- * @date 2013-2-26
- *
- * @history
- *      2013.02.28 增加const限定支持
- *      2013.02.29 优化迭代器结构，增加下标索引访问权限
- *
- */
 
 #ifndef _BASELIB_STATICIDXLIST_H_
 #define _BASELIB_STATICIDXLIST_H_

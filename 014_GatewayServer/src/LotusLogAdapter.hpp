@@ -1,10 +1,3 @@
-/****************************************************************
- * @file		LotusLogAdapter.hpp
- * @see			
- * @version		2006.05.10
- * @author		Loyo.Lu
- * @content		
- ****************************************************************/
 
 #ifndef __LOTUS_LOG_ADAPTER_HPP__
 #define __LOTUS_LOG_ADAPTER_HPP__

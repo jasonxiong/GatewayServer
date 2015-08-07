@@ -1,14 +1,4 @@
-/******************************************************************************
-  File Name       : CFlag.h
-  Version         : 1.0
-  Author          : jackyai
-  Created         : 2005-11-24
-  Description     : 时间管理相关函数
-  History         : 
-  1 Date          : 2005-11-24
-    Author        : jackyai
-    Modification  : Created file
-******************************************************************************/
+
 #ifndef __TIMETOOLS_HPP__
 #define __TIMETOOLS_HPP__
 

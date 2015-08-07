@@ -1,15 +1,3 @@
-/**
-*@file SingletonTemplate.hpp
-*@author MtGame.Server
-*@date 2006.05.10
-*@version 1.0
-*@brief 单件类定义
-*
-*	该单件类的实现是将单件类的实例定义为static，在分配具体类时是用动态分配的方式。
-*	需要注意有两个缺点：
-*	（1）不适合于在多线程的情况下创建单件对象
-*	（2）不适合于需要在程序结束的时候调用具体类的析构函数
-*/
 
 #ifndef __SINGLETON_TEMPLATE_HPP__
 #define __SINGLETON_TEMPLATE_HPP__

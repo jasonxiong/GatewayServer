@@ -21,6 +21,7 @@
 #include "TimeUtility.hpp"
 #include "StringUtility.hpp"
 #include "LogAdapter.hpp"
+
 using namespace ServerLib;
 
 CTimeValue CTimeUtility::m_stTimeValueTick;

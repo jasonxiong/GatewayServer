@@ -1,12 +1,3 @@
-/**
-*@file ErrorDef.hpp
-*@author derekyu
-*@date 2009-11-11
-*@version 1.0
-*@brief 错误码定义文件
-*
-*	包含所有模块错误码的定义，前两个字节表示模块代号
-*/
 
 #ifndef __ERROR_DEF_HPP__
 #define __ERROR_DEF_HPP__

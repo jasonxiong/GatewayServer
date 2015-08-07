@@ -1,13 +1,3 @@
-//:OverloadSafeguard.hpp
-/************************************************************
-FileName: OverloadSafeguard.hpp
-Author: derekyu
-Description:  
-Version: 1.0
-History:
-<author>    <time>    <version >    <desc>
-derekyu   09/06/09/      1.0         ´´½¨
-***********************************************************/
 
 #ifndef __OVERLOAD_SAFEGUARD_HPP__
 #define __OVERLOAD_SAFEGUARD_HPP__

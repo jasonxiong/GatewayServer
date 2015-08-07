@@ -1,5 +1,4 @@
 
-#include "ErrorNumDef.hpp"
 #include "LogAdapter.hpp"
 #include "StringUtility.hpp"
 
@@ -31,7 +30,7 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
     if(!pszAddress)
     {
         LOGERROR("fail to init zero mq, invalid address!\n");
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -1;
     }
 
     m_iSocketType = eSocketType;
@@ -46,7 +45,7 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
         if(!m_spZmqCtx)
         {
             LOGERROR("fail to zmq_init, contex is NULL!\n");
-            return T_COMMON_SYSTEM_FUNC_ERR;
+            return -2;
         }
     }
 
@@ -54,7 +53,7 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
     if(!m_pZmqSocket)
     {
         LOGERROR("fail to zmq_socket, socket type %d\n", eSocketType);
-        return T_COMMON_SYSTEM_FUNC_ERR;
+        return -3;
     }
 
     //先根据进程模型生成实际地址
@@ -62,7 +61,7 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
     if(iRet)
     {
         LOGERROR("fail to generate zmq addr, proc type %u, socket address %s\n", eProcType, m_szSocketAddr);
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -4;
     }
 
     //根据zmq提供服务类型来简历连接
@@ -83,7 +82,7 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
     default:
     {
         LOGERROR("fail to establish zmq socket, invalid service type %u\n", eServiceType);
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -5;
     }
     break;
     }
@@ -91,34 +90,34 @@ int ZmqBus::ZmqInit(const char* pszAddress, enZmqSocketType eSocketType, enZmqPr
     if(iRet)
     {
         LOGERROR("fail to establish zmq socket, ret %d\n", iRet);
-        return T_COMMON_ZMQBUS_CONNECT_ERR;
+        return -6;
     }
 
-    return T_SERVER_SUCESS;
+    return 0;
 }
 
 int ZmqBus::ZmqSend(const char* pszBuff, int iMsgLen, int iFlags)
 {
     if(!pszBuff)
     {
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -1;
     }
 
     int iRet = zmq_send(m_pZmqSocket, pszBuff, iMsgLen, iFlags);
     if(iRet < 0)
     {
         LOGERROR("fail to zmq_send, zmq_send ret %d\n", iRet);
-        return T_COMMON_SYSTEM_FUNC_ERR;
+        return -2;
     }
 
-    return T_SERVER_SUCESS;
+    return 0;
 }
 
 int ZmqBus::ZmqRecv(char* pszBuff, int iMaxLen, int& iMsgLen, int iFlags)
 {
     if(!pszBuff)
     {
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -1;
     }
 
     int iRecvLen = zmq_recv(m_pZmqSocket, pszBuff, iMaxLen, iFlags | ZMQ_DONTWAIT);
@@ -126,16 +125,16 @@ int ZmqBus::ZmqRecv(char* pszBuff, int iMaxLen, int& iMsgLen, int iFlags)
     {
         if(errno == EAGAIN)
         {
-            return T_SERVER_SUCESS;
+            return 0;
         }
 
         LOGERROR("fail to zmq_recv, zmq_recv ret %d\n", iRecvLen);
-        return T_COMMON_SYSTEM_FUNC_ERR;
+        return -2;
     }
 
     iMsgLen = iRecvLen;
 
-    return T_SERVER_SUCESS;
+    return 0;
 }
 
 void ZmqBus::ZmqFin()
@@ -199,7 +198,7 @@ int ZmqBus::GetRealSockAddr(enZmqProcType eProcType, const char* pszAddress)
     if(!pszAddress)
     {
         LOGERROR("fail to get real zmq socket addr, invalid param!\n");
-        return T_COMMON_SYSTEM_PARA_ERR;
+        return -1;
     }
 
     switch(eProcType)
@@ -229,5 +228,5 @@ int ZmqBus::GetRealSockAddr(enZmqProcType eProcType, const char* pszAddress)
     break;
     }
 
-    return T_SERVER_SUCESS;
+    return 0;
 }

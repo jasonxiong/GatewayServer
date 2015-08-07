@@ -1,10 +1,3 @@
-/****************************************************************
- * @file		CommonBaseDefinition/SingletonTemplate.hpp
- * @see			
- * @version		2006.05.10
- * @author		QQGame.Server
- * @content		
- ****************************************************************/
 
 #ifndef __SINGLETON_TEMPLATE_HPP__
 #define __SINGLETON_TEMPLATE_HPP__

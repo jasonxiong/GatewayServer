@@ -1,12 +1,3 @@
-/**
-*@file Statistic.cpp
-*@author derekyu
-*@date 2009-11-20
-*@version 1.0
-*@brief 
-*
-*	
-*/
 
 #include "Statistic.hpp"
 #include "ErrorDef.hpp"

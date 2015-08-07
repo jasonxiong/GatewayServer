@@ -1,12 +1,3 @@
-/**
-*@file MsgStatistic.cpp
-*@author derekyu
-*@date 2009-11-20
-*@version 1.0
-*@brief 
-*
-*	
-*/
 
 #include "MsgStatistic.hpp"
 #include "ErrorDef.hpp"
