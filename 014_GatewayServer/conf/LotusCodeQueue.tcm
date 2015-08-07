@@ -1,0 +1,11 @@
+
+#CodeQueueID	ShmKeyFileName	ShmKeyPrjID	ShmSize	CodeQueueType CodeQueueFlag	Description
+
+1  /home/loyo/StarStory/Common/CQDefaultInput.shm  I  16777216  1  0  LotusToZone
+2  /home/loyo/StarStory/Common/CQDefaultOutput.shm  O  16777216  1  1  ZoneToLotus
+3  /home/loyo/StarStory/Common/CQAuthInput.shm  I  16777216  2  0  LotusToAuthProxyServer
+4  /home/loyo/StarStory/Common/CQAuthOutput.shm  O  16777216  2  1  AuthProxyServerToLotus
+5  /home/loyo/StarStory/Common/CQRecordInput.shm  I  16777216  3  0  LotusToRecord
+6  /home/loyo/StarStory/Common/CQRecordOutput.shm  O  16777216  3  1  RecordToLotus
+
+
