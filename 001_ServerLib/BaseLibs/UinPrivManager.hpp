@@ -8,7 +8,7 @@
 // 权限信息
 typedef struct tagUinPrivInfo
 {
-    unsigned int m_uiUin;                                    	/*   Mt号码 */
+    unsigned int m_uiUin;                                    	/*   uin */
     unsigned int m_uiPriv;                                   	/*   权限 */
 } TUinPrivInfo;
 

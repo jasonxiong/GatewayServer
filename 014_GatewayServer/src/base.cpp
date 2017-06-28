@@ -10,15 +10,12 @@
 #include <sys/timeb.h>
 
 #include "base.hpp"
-//#include "tlib_log.h"
 
 #ifndef WIN32
 FILE* g_fpOutPut = NULL;
 #endif
 
 #define MAX_CONFIG_LINE_LEN 255
-
-/* 终止: 增加人: 曾宇   日期: 2003-9-25*/
 
 void TrimStr( char *strInput )
 {
@@ -56,7 +53,6 @@ void TrimStr( char *strInput )
     return;
 }
 
-/* 起始：增加人: 曾宇   日期: 2004-4-2*/
 char* GetNextToken(const char *szSrc, char cSplitter, char *szToken)
 {
     char *pcPos = NULL;
@@ -95,10 +91,6 @@ char* GetNextToken(const char *szSrc, char cSplitter, char *szToken)
 
     return pcPos;
 }
-/* 终止: 增加人: 曾宇   日期: 2004-4-2*/
-
-
-
 
 void PrintBin(char *pBuffer, int iLength)
 {
@@ -150,7 +142,7 @@ void nullprintf(const char *szFormat, ...)
     return;
 }
 
-unsigned int GenRandSeed(int iRandomPara /*=0*/)
+unsigned int GenRandSeed(int iRandomPara)
 {
     struct timeb timebuffer;
     unsigned int uiSeed;
@@ -162,8 +154,6 @@ unsigned int GenRandSeed(int iRandomPara /*=0*/)
     return uiSeed;
 }
 
-// Begin adder: jackyai Date: 2006-2-23
-// Change sequence : mainsvr_123_20060223
 int CreateDir(const char *szDir)
 {
     if (NULL == szDir)
@@ -177,7 +167,6 @@ int CreateDir(const char *szDir)
     {
         if( mkdir(szDir, S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH) )
         {
-            //TLib_Log_LogMsg("can't create game dir %s, for %s.\n", szDir, strerror(errno));
             return -2;
         }
     }
@@ -188,7 +177,6 @@ int CreateDir(const char *szDir)
 #endif
     return 0;
 }
-// End   adder: jackyai Date: 2006-2-23
 
 void HexPrint(void *pBuffer, int iLength, FILE *fpOut /* = stdout */)
 {

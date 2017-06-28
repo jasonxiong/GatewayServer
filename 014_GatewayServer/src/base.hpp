@@ -30,13 +30,7 @@
 #include <dlfcn.h>
 #endif
 
-//#ifdef _DEBUG_
-//#include "tlib_log.h"
-//#define PRINT TLib_Log_LogMsg
-//#else
 #define PRINT xprintf
-//#endif
-
 
 #define ABS(a,b)	(((unsigned int) (a) > (unsigned int)(b)) ? ((a) - (b)) : ((b) - (a)))
 #ifndef MAX
@@ -49,24 +43,12 @@
 
 #define DELETEOBJ(a)  {	delete a ;	a = NULL;}
 
-// Begin adder: andyguo Date: 2006-8-15
-// Change sequence : NewMarketSvr_019_20060815
 #define BIT_ENABLED(AWORD, BIT) (((AWORD) & (BIT)) != 0)
 #define BIT_DISABLED(AWORD, BIT) (((AWORD) & (BIT)) == 0)
 #define SET_BITS(AWORD, BITS) ((AWORD) |= (BITS))
 #define CLR_BITS(AWORD, BITS) ((AWORD) &= ~(BITS))
-// End   adder: andyguo Date: 2006-8-15
-
-
 
 #define SAY nullprintf
-
-
-
-//#ifdef __cplusplus
-//extern "C"
-//{
-//#endif
 
 #ifndef WIN32
 extern FILE* g_fpOutPut;  //PRINT的输出流
@@ -84,13 +66,6 @@ char* GetNextToken(const char *szSrc, char cSplitter, char *szToken);
 
 //生成随即数的种子
 unsigned int GenRandSeed(int iRandomPara = 0);
-
-//#ifdef __cplusplus
-//}
-//#endif
-
-// Begin adder: jackai Date: 2006-3-16
-// Change sequence : prsnlRCSvr_003_20060316
 
 inline char *GetCurVersion(unsigned int unVer)
 {
@@ -111,15 +86,12 @@ inline char *GetCurVersion(unsigned int unVer)
 	{
 	    strcat(szVersion,"Release");
 	}
-       sprintf(szVersion+strlen(szVersion),"%c%c Build%c%c%c",szVer[3],szVer[4],szVer[5],szVer[6],szVer[7]);
+	
+	sprintf(szVersion+strlen(szVersion),"%c%c Build%c%c%c",szVer[3],szVer[4],szVer[5],szVer[6],szVer[7]);
 	sprintf(szVersion+strlen(szVersion)," (%d)",unVer);
-	
-	
-	//sprintf(szVersion, "%d.%03d.%03d", unVer/1000000, (unVer % 1000000)/1000, unVer %100 );
-	
+
 	return &szVersion[0];
 }
-// End   modifier: jackai Date: 2006-3-16
 
 int CreateDir(const char *szDir);
 
