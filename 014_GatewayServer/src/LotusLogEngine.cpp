@@ -181,8 +181,6 @@ int CLotusLogEngine::PrintBin(char *pcFileName,
 	return 0;
 }
 
-
-
 int CLotusLogEngine::ShiftFile(char *pcFileName,
 					 int iMaxFileSize, int iMaxFileCount,
 					 char *pcErrInfo)

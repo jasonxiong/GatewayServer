@@ -150,17 +150,7 @@ namespace DeprecatedLib
 	private: \
 		int m_iErrorNO; \
 		void SetErrorNO(int iErrorNO) { m_iErrorNO = iErrorNO; }
-
-	//public:
-	//	//!在接口返回错误时，调用这个函数获取错误号
-	//	int GetErrorNO() const { return m_iErrorNO; }
-	//private: 
-	//	int m_iErrorNO; //!错误码
-	//	//!设置错误号
-	//	void SetErrorNO(int iErrorNO) { m_iErrorNO = iErrorNO; }
-
 }
-
 
 #endif //__ERROR_DEF_HPP__
 ///:~

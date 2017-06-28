@@ -8,8 +8,6 @@
 #include "GlobalValue.hpp"
 #include "SingletonTemplate.hpp"
 
-
-
 //定义所有程序可能共享的日志级别(预留一个字节） 0x0001-0x00000080
 
 #define LOG_LEVEL_DEBUG         0x00000001
@@ -21,17 +19,11 @@
 #define LOG_LEVEL_ALERT         0x00000040
 #define LOG_LEVEL_EMERGENCY     0x00000080
 
-
-
 #define LOG_LEVEL_CALL          0x00000100      //跟踪函数调用
 #define LOG_LEVEL_DETAIL        0x00000800      //详细日志
 
-
-
 #define LOG_LEVEL_NONE          0x00000000
 #define LOG_LEVEL_ANY           0xFFFFFFFF
-
-
 
 class CLotusLogEngine
 {

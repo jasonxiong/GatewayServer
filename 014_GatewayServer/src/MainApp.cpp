@@ -207,9 +207,6 @@ int main(int argc, char* *argv)
     }
 #endif
 
-    // 这里不写死，读配置文件LogSetting.tcm
-    // SETTRACELEVEL(LOG_LEVEL_NONE);
-
     LotusStatistic::instance()->ClearAllStat();
     MsgStatisticSingleton::instance()->Initialize();
     MsgStatisticSingleton::instance()->Reset();

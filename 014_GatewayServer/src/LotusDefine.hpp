@@ -10,7 +10,7 @@ const int APPCMD_STOP_SERVICE = 1;
 const int APPCMD_RELOAD_CONFIG = 2;
 
 #ifdef _DEBUG_
-const unsigned int FD_SIZE = 5000; //todo jasonxiong 方便测试
+const unsigned int FD_SIZE = 5000; //方便测试
 #else
 const unsigned int FD_SIZE = 50000;
 #endif
@@ -35,11 +35,6 @@ const unsigned int MIN_NETHEAD_SIZE = 16;
 const unsigned int NETHEAD_V2_SIZE = 24;
 
 const unsigned int CRYPT_KEY_LENGTH = 16;
-
-const unsigned int QQIDENT_LENGTH = 12; //玩家在QQ增值中心身份BITMAP的长度
-typedef unsigned char TQQIdent[QQIDENT_LENGTH];
-
-const unsigned int MAX_STATERROR_NUMBER = 16;
 
 typedef enum enLotusSocketFlag
 {

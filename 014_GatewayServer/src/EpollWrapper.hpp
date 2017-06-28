@@ -2,16 +2,10 @@
 #ifndef __EPOLL_WRAPPER_HPP__
 #define __EPOLL_WRAPPER_HPP__
 
-
-
 #include <sys/epoll.h>
 #include <assert.h>
 
-
-
 #include "LotusDefine.hpp"
-
-
 
 #ifdef WIN32
 
@@ -66,14 +60,11 @@ struct epoll_event
 	epoll_data_t data;    /* User data variable */
 };
 
-
-
 /* Creates an epoll instance.  Returns an fd for the new instance.
 The "size" parameter is a hint specifying the number of file
 descriptors to be associated with the new instance.  The fd
 returned by epoll_create() should be closed with close().  */
 extern int epoll_create (int __size) __THROW;
-
 
 /* Manipulate an epoll instance "epfd". Returns 0 in case of success,
 -1 in case of error ( the "errno" variable will contain the
@@ -84,7 +75,6 @@ is interested in and any associated user data.  */
 extern int epoll_ctl (int __epfd, int __op, int __fd,
 struct epoll_event *__event) __THROW;
 
-
 /* Wait for events on an epoll instance "epfd". Returns the number of
 triggered events returned in "events" buffer. Or -1 in case of
 error with the "errno" variable set to the specific error code. The
@@ -92,20 +82,11 @@ error with the "errno" variable set to the specific error code. The
 events. The "maxevents" is the maximum number of events to be
 returned ( usually size of "events" ). The "timeout" parameter
 specifies the maximum wait time in milliseconds (-1 == infinite).  */
-extern int epoll_wait (int __epfd, struct epoll_event *__events,
-					   int __maxevents, int __timeout) __THROW;
-
-
+extern int epoll_wait (int __epfd, struct epoll_event *__events, int __maxevents, int __timeout) __THROW;
 
 #endif
 
-
-
 typedef int (*Function_EpollHandler) (int);
-
-
-
-//const int MAX_EPOLL_EVENT_NUMBER = 200000;
 
 class CEpollWrapper
 {
@@ -125,8 +106,6 @@ public:
 
 	int SetNonBlock(int iFD);
     int SetNagleOff(int iFD);
-
-
 
 	inline void SetEpollWaitingTime(int iEpollWaitingTime);
 
@@ -154,11 +133,6 @@ private:
 	epoll_event m_stOneEpollEvent;
 
 };
-
-//inline void CEpollWrapper::SetEpollEventSize(int iEpollEventSize)
-//{
-//	m_iEpollEventSize = iEpollEventSize;
-//}
 
 inline void CEpollWrapper::SetEpollWaitingTime(int iEpollWaitingTime)
 {

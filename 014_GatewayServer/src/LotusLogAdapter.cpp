@@ -9,7 +9,6 @@
 #include "ConfigDefine.hpp"
 #include "base.hpp"
 
-
 CLotusLogAdapter::CLotusLogAdapter()
 {
 	ClearLocalTraceFlag();
@@ -33,10 +32,7 @@ CLotusLogAdapter::~CLotusLogAdapter()
 
 //////////////////////////////////////////////////////////////////////////
 
-
-
-int CLotusLogAdapter::WriteServerLog(int iLogLevel,
-									const char* szContent, ...)
+int CLotusLogAdapter::WriteServerLog(int iLogLevel, const char* szContent, ...)
 {
 	if(m_stLogEngine.CheckLogLevel(iLogLevel) != 0)
 	{

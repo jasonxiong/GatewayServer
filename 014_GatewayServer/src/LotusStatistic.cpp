@@ -11,12 +11,8 @@ void CLotusStat::ClearAllStat()
     m_uiInputPacketLength = 0;
     m_uiOutputPacketNumber = 0;
     m_uiOutputPacketLength = 0;
-    memset(m_auiStatError, 0, sizeof(m_auiStatError));
-
     m_uiFailedPushNumber = 0;
-
     m_uiMaxPopedCodeNumber = 0;
-
 }
 
 int CLotusStat::RecordAllStat(unsigned int uiIntervalTime)

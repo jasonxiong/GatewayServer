@@ -67,19 +67,13 @@ typedef enum enCodeQueueFlag
 {
 	ECDF_INPUT	= (unsigned int)0x00000000,	// 输入CodeQueue，初始值，不用于判断
 	ECDF_OUTPUT	= (unsigned int)0x00000001,	// 输出CodeQueue
-	
-	//delete by Loyo @ 20120501
-	//删除 ECDF_DEFAULT，功能与ECQT_LOGIC合并
-	//ECDF_DEFAULT	= (unsigned int)0x00000002,	// 默认CodeQueue，一般也是默认输入CodeQueue
-
 }ECodeQueueFlag;
 
-// Add by Jackhu [2011-1-13]
 //本字段取值用于区分CodeQueue挂接Server的类型
 typedef enum enmCodeQueueType
 {
-	ECQT_DEFAULT = 1,	// 本CodeQueue发往默认业务服务器 modified by Loyo @ 20120501
-	ECQT_RECORD = 3,	// 本CodeQueue发往消息录制服务器 add by Loyo @ 20120501
+	ECQT_DEFAULT = 1,	// 本CodeQueue发往默认业务服务器
+	ECQT_RECORD = 3,	// 本CodeQueue发往消息录制服务器
 }ECodeQueueType;
 
 //Flash、U3D策略文件尺寸

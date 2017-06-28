@@ -199,6 +199,4 @@ void HexPrint(void *pBuffer, int iLength, FILE *fpOut /* = stdout */)
     return;
 }
 
-
-
 #endif

@@ -10,8 +10,6 @@
 
 using namespace DeprecatedLib;
 
-
-
 CCodeQueue::CCodeQueue()
 {
 }

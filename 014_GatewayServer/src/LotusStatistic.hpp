@@ -58,14 +58,8 @@ private:
 	unsigned int m_uiOutputPacketNumber;
 	unsigned int m_uiOutputPacketLength;
 	unsigned int m_uiOutputFlashNumber;
-
 	unsigned int m_uiFailedPushNumber;
-
 	unsigned int m_uiMaxPopedCodeNumber;
-
-	unsigned int m_auiStatError[MAX_STATERROR_NUMBER];
-
-
 };
 
 typedef Singleton<CLotusStat> LotusStatistic;

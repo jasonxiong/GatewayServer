@@ -42,11 +42,6 @@ int CCodeQueueAssemble::CreateCodeQueue(const TCodeQueueConfig& rstCodeQueueConf
 
     printf("CodeQueue[%d]:%s is Ready\n", rstCodeQueueConfig.m_iCodeQueueID, rstCodeQueueConfig.m_szKeyFileName);
 
-    //if(rstCodeQueueConfig.m_uiCodeQueueFlag & ECDF_DEFAULT)
-    //{
-    //  m_apstDefaultCodeQueue[m_uiDefaultNumber] = rpstCodeQueue;
-    //  m_uiDefaultNumber++;
-    //}
     if(rstCodeQueueConfig.m_uiCodeQueueFlag & ECDF_OUTPUT)
     {
         m_apstOutputCodeQueue[m_iOutputCodeQueueNumber] = rpstCodeQueue;

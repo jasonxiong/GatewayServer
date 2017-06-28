@@ -77,12 +77,6 @@ int CLotusConfigMng::LoadPrimaryConfig()
     stConfigFile.GetItemValue("Code", "IsNeedCheckNetHead", iNeedCheckNetHead, 1);
     m_bIsNeedCheckNetHead = iNeedCheckNetHead;
 
-    /*
-    int iLogLevel;
-    stConfigFile.GetItemValue("Log", "LogLevel", iLogLevel, 0);
-    SETTRACELEVEL(iLogLevel);
-    */
-
     int iBillFlag;
     stConfigFile.GetItemValue("Bill", "BillFlag", iBillFlag, 0);
     m_uiBillFlag = iBillFlag;
@@ -381,11 +375,6 @@ bool CLotusConfigMng::IsCodeQueueAvailable(TCodeQueueConfig& rstCodeQueueConfig)
     {
         return false;
     }
-
-    //if(rstCodeQueueConfig.m_iCodeQueueID >= MAX_CODEQUEUE_ID)
-    //{
-    //  return false;
-    //}
 
     return true;
 }

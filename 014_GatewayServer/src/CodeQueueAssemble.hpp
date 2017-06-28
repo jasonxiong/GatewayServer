@@ -2,16 +2,11 @@
 #ifndef __CODEQUEUE_ASSEMBLE_HPP__
 #define __CODEQUEUE_ASSEMBLE_HPP__
 
-
-
 #include "SharedMemory.hpp"
 #include "LotusDefine.hpp"
 #include "ConfigDefine.hpp"
 
 #include "CodeQueue.hpp"
-
-
-//class CCodeQueue;
 
 class CCodeQueueAssemble
 {
@@ -39,9 +34,6 @@ public:
     //Input
     CCodeQueue* m_pstDefaultInputCodeQueue;
     CCodeQueue* m_pstRecordInputCodeQueue;
-
-    //unsigned int m_uiDefaultNumber;
-    //CCodeQueue* m_apstDefaultCodeQueue[MAX_CODEQUEUE_NUMBER];
 
     //Output
     int m_iOutputCodeQueueNumber;

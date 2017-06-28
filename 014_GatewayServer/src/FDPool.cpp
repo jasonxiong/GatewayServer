@@ -17,7 +17,6 @@ void CFDPool::SetFDInactive(int iFD)
 {
 	assert(iFD > 0 && iFD < (int)FD_SIZE);
 
-    // ADD BEG [2010-8-3 marcuscai]
     // 为以防万一, internal和external的都关闭
     m_stExternalClientPool.DeleteSocketByFD(iFD);
     TInternalServerSocket *pInSocket = m_stInternalServerPool.GetSocketByFD(iFD);
@@ -26,7 +25,6 @@ void CFDPool::SetFDInactive(int iFD)
         pInSocket->m_iSocketFD = -1;
     }
 
-    // ADD END 
 	m_auiSocketFlag[iFD] = 0;
 
 	return;

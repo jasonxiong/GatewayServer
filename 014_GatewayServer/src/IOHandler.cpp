@@ -1046,20 +1046,12 @@ int CIOHandler::Reset(int iFD, int iErrorNo, bool bNotSendOffline /* = false */)
                 iErrorNo, szCurDateTime, pstExternalClientSocket->m_uiUin, pstExternalClientSocket->m_iSocketFD,
                 pstExternalClientSocket->m_uiCreateTime, szIP, pstExternalClientSocket->m_ushSrcPort, errno, strerror(errno));
         }
-
-        //if(m_stConfigAssemble.GetLotusConfigMng().GetBillFlag() & EBF_CLOSE_SOCKET)
-        //{
-        //  CBillWriter::WriteSocketBill(pstExternalClientSocket, EBEI_CLOSE_SOCKET);
-        //}
-
-        // modified by marcuscai 2010-6-28
-        // 去掉了条件 pstExternalClientSocket->m_iSendFlag == ESCF_SENT_PACKET_TO_CLIENT
+		
+		// 去掉了条件 pstExternalClientSocket->m_iSendFlag == ESCF_SENT_PACKET_TO_CLIENT
         // 觉得这个条件会导致Server没响应的情况下, lotus不会向其发送断线通知
         if(pstExternalClientSocket != NULL && !bNotSendOffline)
         {
             //通知到后台Server
-            //TRACESVR(LOG_LEVEL_DETAIL, "In CIOHandler::Reset, FD %d NotifyOffline\n", iFD);
-
             //通过一个纯NetHead报文通知到逻辑Server
             NotifyInternalMsg(iFD, pstExternalClientSocket->m_uiUin, ERCF_LOTUS_NOTIFY_CLIENT_OFFLINE);
         }
@@ -1995,7 +1987,6 @@ int CIOHandler::ConvertCode(char* szInBuffer, int iInLength, char* szOutBuffer, 
 
     char **pOut= &szOutBuffer;
 
-    //handle = iconv_open("utf-8", "gb2312");
     handle = iconv_open(szToCode, szFromCode);
 
     if( handle < 0 )

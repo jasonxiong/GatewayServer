@@ -29,37 +29,23 @@ int DecodeMemInt( char **pstrDecode, char *pcDest, int sMemSize);
 int EncodeInt64( char **pstrEncode, uint64_t uiSrc );
 int DecodeInt64( char **pstrDecode, uint64_t *puiDest );
 
+int DecryptData(unsigned short ushAlgorithm,
+	const unsigned char* pbyKey,
+	const unsigned char* pbyIn,
+	int iInLength,
+	unsigned char* pbyOut,
+	int& riOutLength);
 
+int Compress(unsigned short ushAlgorithm,
+	const unsigned char* pbyIn,
+	short shInLength,
+	unsigned char* pbyOut,
+	short* pnOutLength);
 
-//class CCodeEngine
-//{
-//public:
-	int EncryptData(unsigned short ushAlgorithm,
-		const unsigned char* pbyKey,
-		const unsigned char* pbyIn,
-		short shInLength,
-		unsigned char* pbyOut,
-		short& rshOutLength);
-
-	int DecryptData(unsigned short ushAlgorithm,
-		const unsigned char* pbyKey,
-		const unsigned char* pbyIn,
-		int iInLength,
-		unsigned char* pbyOut,
-		int& riOutLength);
-
-	int Compress(unsigned short ushAlgorithm,
-		const unsigned char* pbyIn,
-		short shInLength,
-		unsigned char* pbyOut,
-		short* pnOutLength);
-
-	int Uncompress(unsigned short ushAlgorithm,
-		const unsigned char* pbyIn,
-		short shInLength,
-		unsigned char* pbyOut,
-		short* pnOutLength);
-
-//};
+int Uncompress(unsigned short ushAlgorithm,
+	const unsigned char* pbyIn,
+	short shInLength,
+	unsigned char* pbyOut,
+	short* pnOutLength);
 
 #endif
