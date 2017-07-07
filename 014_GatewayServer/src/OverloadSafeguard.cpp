@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include "base.hpp"
 #include "OverloadSafeguard.hpp"
 #include "ConfigFile.hpp"
