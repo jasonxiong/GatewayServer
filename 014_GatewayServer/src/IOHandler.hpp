@@ -149,9 +149,6 @@ private:
 
 private:
 
-    int ConvertCode(char* szInBuffer, int iInLength, char* szOutBuffer, int iOutLength, const char* szToCode, const char* szFromCode);
-private:
-
     //FD池所用的共享内存实例
     CSharedMemory m_stSharedMemoryFDPool;
 

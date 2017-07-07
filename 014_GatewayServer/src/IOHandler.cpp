@@ -1978,32 +1978,3 @@ int CIOHandler::SendToExternalClient(const unsigned short ushCodeLength, const c
 
     return 0;
 }
-
-int CIOHandler::ConvertCode(char* szInBuffer, int iInLength, char* szOutBuffer, int iOutLength, const char* szToCode, const char* szFromCode)
-{
-    iconv_t handle;
-
-    char **pIn = &szInBuffer;
-
-    char **pOut= &szOutBuffer;
-
-    handle = iconv_open(szToCode, szFromCode);
-
-    if( handle < 0 )
-    {
-        return -1;
-    }
-
-    memset(szOutBuffer, 0, iOutLength);
-
-    if( iconv(handle, pIn, (size_t *)&iInLength, pOut, (size_t *)&iOutLength) == (size_t)-1 )
-    {
-        iconv_close(handle);
-        return -2;
-    }
-
-    iconv_close(handle);
-
-    return 0;
-}
-
