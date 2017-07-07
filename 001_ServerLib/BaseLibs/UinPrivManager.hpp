@@ -39,7 +39,7 @@ public:
     void Trace();
 public:
     //////////////////////////////////////////////////////////////////////////
-    // 以下接口给ServerUinPrivServer使用
+    // 以下接口给UinPrivServer使用
 
     // 切换主备缓冲区
     void SwitchActiveCache();

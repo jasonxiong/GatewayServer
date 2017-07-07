@@ -328,7 +328,6 @@ typedef CSingleton<CPlayerLogAdapter> PlayerLogSingleton;
         __FILE__, __LINE__, __FUNCTION__, format, ##__VA_ARGS__)
 #endif
 
-
 #define PLAYERLOGFD PlayerLogSingleton::Instance()->m_stLogFile.GetFD
 #define PLAYERLOGFP(uiUin) PlayerLogSingleton::Instance()->GetPlayerFile(uiUin)
 #define PLAYERPROTOFILE(uiUin) PlayerLogSingleton::Instance()->GetPlayerProtoFile(uiUin)
@@ -375,7 +374,7 @@ typedef CSingleton<CMsgLogAdapter> MsgLogSingleton;
 #ifdef _GAME_NO_LOG_
 #define TRACEMSG(iLogLevel, format, ...)
 #else
-//!错误日志，只有在TraceUin列表中的Uin才会打
+//!错误日志，只有在TraceMsg列表中的MsgID才会打
 #define TRACEMSG(iLogLevel, format, ...) MsgLogSingleton::Instance()->WriteLog(iLogLevel, \
         __FILE__, __LINE__, __FUNCTION__, format, ##__VA_ARGS__)
 #endif
@@ -383,7 +382,7 @@ typedef CSingleton<CMsgLogAdapter> MsgLogSingleton;
 #ifdef _GAME_NO_LOG_
 #define TRACEMSG_EX(iLogLevel, iMsgID, format, ...)
 #else
-//!错误日志，只有在TraceUin列表中的Uin才会打
+//!错误日志，只有在TraceMsg列表中的MsgID才会打
 #define TRACEMSG_EX(iLogLevel, iMsgID, format, ...) MsgLogSingleton::Instance()->WriteLog(iLogLevel, iMsgID, \
         __FILE__, __LINE__, __FUNCTION__, format, ##__VA_ARGS__)
 #endif
@@ -438,13 +437,12 @@ private:
 
 };
 
-//!一般来说只会用到一个CPlayerLogAdapter类，所以实现成单件
+//!一般来说只会用到一个CThreadLogAdapter类，所以实现成单件
 typedef CSingleton<CThreadLogAdapter> ThreadLogSingleton;
 
 #ifdef _GAME_NO_LOG_
 #define TRACETHREAD(uiUin, format, ...)
 #else
-//!错误日志，只有在TraceUin列表中的Uin才会打
 #define TRACETHREAD(iThreadID, format, ...) ThreadLogSingleton::Instance()->WriteLog(iThreadID, \
     __FILE__, __LINE__, __FUNCTION__, format, ##__VA_ARGS__)
 #endif

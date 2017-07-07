@@ -13,6 +13,7 @@
 #include "EncodeStream.hpp"
 #include "ErrorDef.hpp"
 #include "StringUtility.hpp"
+
 using namespace ServerLib;
 
 CEncodeStream::CEncodeStream()
@@ -99,33 +100,6 @@ CEncodeStream& CEncodeStream::operator <<(unsigned short ushShort16)
 
     return *this;
 }
-
-//CEncodeStream& CEncodeStream::operator <<(long lLong)
-//{
-//	return (*this << (unsigned long)lLong);
-//}
-//
-//CEncodeStream& CEncodeStream::operator <<(unsigned long ulLong)
-//{
-//	if(m_pCurCodePos == NULL)
-//	{
-//		SetErrorNO(EEN_ENCODER__NULL_POINTER);
-//
-//		return *this;
-//	}
-//
-//	if(m_pCurCodePos + sizeof(unsigned long) > m_aucCodeBuf + m_iMaxCodeLen)
-//	{
-//		SetErrorNO(EEN_ENCODER__EXCEED_CODE_BUF_SIZE);
-//
-//		return *this;
-//	}
-//
-//	memcpy(m_pCurCodePos, (const void*)&ulLong, sizeof(unsigned long));
-//	m_pCurCodePos += sizeof(unsigned long);
-//
-//	return *this;
-//}
 
 CEncodeStream& CEncodeStream::operator <<(int iInt32)
 {

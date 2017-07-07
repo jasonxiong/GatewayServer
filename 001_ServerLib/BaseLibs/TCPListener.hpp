@@ -50,14 +50,6 @@ public:
     */
     int Initialize(const char* pszBindIP, const unsigned short ushBindPort);
 
-    ///**
-    //*简单初始化
-    //*@param[in] uiBindIP 监听要绑定的IP
-    //*@param[in] ushBindPort 监听要绑定的端口
-    //*@return 0 success
-    //*/
-    //int Initialize(const unsigned int uiBindIP, const unsigned short ushBindPort);
-
     //!初始化监听配置
     int Initialize(const TTCPListenerCfg& rstListenerConfig);
 

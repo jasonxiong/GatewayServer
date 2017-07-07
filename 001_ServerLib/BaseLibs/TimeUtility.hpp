@@ -16,12 +16,7 @@
 #include <sys/time.h>
 #include "TimeValue.hpp"
 
-const int SECOND_IN_ONE_MIN = 60;
-const int SECONDS_IN_ONE_HOUR = 60 *60;// 一天的秒数
 const int HOURS_IN_ONE_DAY = 24;
-
-const int SECONDS_IN_ONE_DAY = 24 * 60 * 60;
-
 
 namespace ServerLib
 {

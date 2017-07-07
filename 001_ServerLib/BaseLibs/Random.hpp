@@ -28,13 +28,13 @@ public:
     // 随机返回0~MAX_DROP_RATE之间的一个数
     static int  GetRandomInRangeHundredMillion();
 
-    //pluto jasonxiong 新增加返回0 ~ 1000 范围内的随机数
+    //返回0 ~ 1000 范围内的随机数
     static int GetRandomInRangeThousand();
 
-	//jasonxiong 新增加返回0 ~ 10000 范围内的随机数
+	//返回0 ~ 10000 范围内的随机数
 	static int GetRandomInRangeTenThousand();
 
-	//jasonxiong 返回[0,range) 区间内的一个数
+	//返回[0,range) 区间内的一个数
 	static int GetRandomNumberInRange(int iRange);
 
     // 随机返回一个布尔值

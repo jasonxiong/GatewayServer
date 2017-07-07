@@ -41,16 +41,6 @@ CTempMemoryMng::CTempMemoryMng(int iObjSize, int iMaxObjCount)
     Initialize();
 }
 
-//void* CTempMemoryMng::operator new(unsigned int uiSize, const void* pThis) throw()
-//{
-//	if(!pThis)
-//	{
-//		return NULL;
-//	}
-//
-//	return (void*)pThis;
-//}
-
 CTempMemoryMng::~CTempMemoryMng()
 {
     if(m_iMemAllocType == ETMT_ALLOC_BY_MEMORY_MNG)

@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -9,7 +8,6 @@
 #include <signal.h>
 #include <sys/stat.h>
 
-#include "AppUtility.hpp"
 #include "SignalUtility.hpp"
 #include "NowTime.hpp"
 #include "SectionConfig.hpp"
@@ -20,6 +18,8 @@
 #include "MsgStatistic.hpp"
 #include "PerformanceStatistic.hpp"
 #include "Random.hpp"
+
+#include "AppUtility.hpp"
 
 using namespace ServerLib;
 
@@ -93,198 +93,194 @@ int CAppUtility::ReadConfigFile(const char* pszFilename, bool* pbDaemonLaunch, b
 
 // 启动服务器进程
 void CAppUtility::AppLaunch(int argc, char** argv,
-                            Function_SignalHandler pSigHandler,
-                            bool& rbResume,
-                            int& riWorldID,
-                            int& riInstanceID,
-                            int* piZoneID,
-                            char* pszHostIP,
-                            int* piHostPort,
-                            bool bEnableQuitSig)
+	Function_SignalHandler pSigHandler,
+	bool& rbResume,
+	int& riWorldID,
+	int& riInstanceID,
+	int* piZoneID,
+	char* pszHostIP,
+	int* piHostPort,
+	bool bEnableQuitSig)
 {
-    bool bDaemonLaunch = true;
-    rbResume = false;
-    riWorldID = 1;
-    riInstanceID = 1;
-    if (piZoneID)
-    {
-        *piZoneID = 0;
-    }
+	bool bDaemonLaunch = true;
+	rbResume = false;
+	riWorldID = 1;
+	riInstanceID = 1;
+	if (piZoneID)
+	{
+		*piZoneID = 0;
+	}
 
-    if (argc > 1)
-    {
-        if (!strcasecmp(argv[1], "-file"))
-        {
-            if (ReadConfigFile(argv[2], &bDaemonLaunch, &rbResume, &riWorldID, piZoneID, &riInstanceID))
-            {
-                exit(0);
-            }
-        }
+	if (argc > 1)
+	{
+		if (!strcasecmp(argv[1], "-file"))
+		{
+			if (ReadConfigFile(argv[2], &bDaemonLaunch, &rbResume, &riWorldID, piZoneID, &riInstanceID))
+			{
+				exit(0);
+			}
+		}
 
-        // 分析-d, -i, -v, -r四个原有的基本参数
-        if(!strcasecmp(argv[1], "-v"))
-        {
-            ShowVersion();
-            exit(0);
-        }
-        else if(!strcasecmp(argv[1], "-d"))
-        {
-            bDaemonLaunch = false;
-        }
-        else if(!strcasecmp(argv[1], "-i"))
-        {
-            rbResume = false;
-        }
-        else if (!strcasecmp(argv[1], "-r"))
-        {
-            rbResume = true;
-        }
-        else if(!strcasecmp(argv[1], "-di") || !strcasecmp(argv[1], "-id"))
-        {
-            bDaemonLaunch = false;
-            rbResume = false;
-        }
-        else if(!strcasecmp(argv[1], "-dr") || !strcasecmp(argv[1], "-rd"))
-        {
-            bDaemonLaunch = false;
-            rbResume = true;
-        }
+		// 分析-d, -i, -v, -r四个原有的基本参数
+		if (!strcasecmp(argv[1], "-v"))
+		{
+			ShowVersion();
+			exit(0);
+		}
+		else if (!strcasecmp(argv[1], "-d"))
+		{
+			bDaemonLaunch = false;
+		}
+		else if (!strcasecmp(argv[1], "-i"))
+		{
+			rbResume = false;
+		}
+		else if (!strcasecmp(argv[1], "-r"))
+		{
+			rbResume = true;
+		}
+		else if (!strcasecmp(argv[1], "-di") || !strcasecmp(argv[1], "-id"))
+		{
+			bDaemonLaunch = false;
+			rbResume = false;
+		}
+		else if (!strcasecmp(argv[1], "-dr") || !strcasecmp(argv[1], "-rd"))
+		{
+			bDaemonLaunch = false;
+			rbResume = true;
+		}
 
-        // 检查剩余的参数
-        for (int i = 1; i < argc; i++)
-        {
-            if (!strcasecmp(argv[i], "-w"))
-            {
-                riWorldID = atoi(argv[i+1]);
-                i++;
-            }
-            else if (!strcasecmp(argv[i], "-z"))
-            {
-                if (piZoneID)
-                {
-                    *piZoneID = atoi(argv[i+1]);
-                }
-                i++;
-            }
-            else if (!strcasecmp(argv[i], "-ins"))
-            {
-                riInstanceID = atoi(argv[i+1]);
-                i++;
-            }
-            else if (!strcasecmp(argv[i], "-h"))
-            {
-                if (pszHostIP)
-                {
-                    SAFE_STRCPY(pszHostIP, argv[i+1], 16);
-                }
-                i++;
-            }
-            else if (!strcasecmp(argv[i], "-p"))
-            {
-                if (piHostPort)
-                {
-                    *piHostPort = atoi(argv[i+1]);
-                }
-                i++;
-            }
-            else if (!strcasecmp(argv[i], "--resume"))
-            {
-                rbResume = true;
-            }
-            else if (!strncasecmp(argv[i], "--id=", strlen("--id=")))
-            {
-                // TBUS地址为: world:12.zone:4.function:8.instance:8
-                char szID[16];
-                CStringSplitter stSpliter;
+		// 检查剩余的参数
+		for (int i = 1; i < argc; i++)
+		{
+			if (!strcasecmp(argv[i], "-w"))
+			{
+				riWorldID = atoi(argv[i + 1]);
+				i++;
+			}
+			else if (!strcasecmp(argv[i], "-z"))
+			{
+				if (piZoneID)
+				{
+					*piZoneID = atoi(argv[i + 1]);
+				}
+				i++;
+			}
+			else if (!strcasecmp(argv[i], "-ins"))
+			{
+				riInstanceID = atoi(argv[i + 1]);
+				i++;
+			}
+			else if (!strcasecmp(argv[i], "-h"))
+			{
+				if (pszHostIP)
+				{
+					SAFE_STRCPY(pszHostIP, argv[i + 1], 16);
+				}
+				i++;
+			}
+			else if (!strcasecmp(argv[i], "-p"))
+			{
+				if (piHostPort)
+				{
+					*piHostPort = atoi(argv[i + 1]);
+				}
+				i++;
+			}
+			else if (!strcasecmp(argv[i], "--resume"))
+			{
+				rbResume = true;
+			}
+			else if (!strncasecmp(argv[i], "--id=", strlen("--id=")))
+			{
+				// TBUS地址为: world:12.zone:4.function:8.instance:8
+				char szID[16];
+				CStringSplitter stSpliter;
 
-                const char* pszTBusAddr = argv[i];
-                pszTBusAddr += strlen("--id=");
-                stSpliter.SetString(pszTBusAddr);
+				const char* pszTBusAddr = argv[i];
+				pszTBusAddr += strlen("--id=");
+				stSpliter.SetString(pszTBusAddr);
 
-                int iRet;
+				int iRet;
 
-                // WorldID
-                iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
-                if (iRet < 0)
-                {
-                    exit(1);
-                }
-                riWorldID = atoi(szID);
+				// WorldID
+				iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
+				if (iRet < 0)
+				{
+					exit(1);
+				}
+				riWorldID = atoi(szID);
 
-                // ZoneID
-                iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
-                if (iRet < 0)
-                {
-                    exit(1);
-                }
-                if (piZoneID)
-                {
-                    *piZoneID = atoi(szID);
-                }
+				// ZoneID
+				iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
+				if (iRet < 0)
+				{
+					exit(1);
+				}
+				if (piZoneID)
+				{
+					*piZoneID = atoi(szID);
+				}
 
-                // FunctionID
-                iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
-                if (iRet < 0)
-                {
-                    exit(1);
-                }
+				// FunctionID
+				iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
+				if (iRet < 0)
+				{
+					exit(1);
+				}
 
-                // InstanceID
-                iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
-                if (iRet < 0)
-                {
-                    exit(1);
-                }
-                riInstanceID = atoi(szID);
-            }
-            else if (!strcasecmp(argv[i], "stop"))
-            {
-                int iPid = ReadPidFile();
-                if (iPid > 0)
-                {
-                    kill(iPid, SIGUSR2);
-                }
+				// InstanceID
+				iRet = stSpliter.GetNextToken(".", szID, sizeof(szID));
+				if (iRet < 0)
+				{
+					exit(1);
+				}
+				riInstanceID = atoi(szID);
+			}
+			else if (!strcasecmp(argv[i], "stop"))
+			{
+				int iPid = ReadPidFile();
+				if (iPid > 0)
+				{
+					kill(iPid, SIGUSR2);
+				}
 
-                exit(0);
-            }
-            else if (!strcasecmp(argv[i], "reload"))
-            {
-                int iPid = ReadPidFile();
-                if (iPid > 0)
-                {
-                    kill(iPid, SIGUSR1);
-                }
+				exit(0);
+			}
+			else if (!strcasecmp(argv[i], "reload"))
+			{
+				int iPid = ReadPidFile();
+				if (iPid > 0)
+				{
+					kill(iPid, SIGUSR1);
+				}
 
-                exit(0);
-            }
-        }
-    }
+				exit(0);
+			}
+		}
+	}
 
-    // 检查Lock文件, 防止重复启动
-    CheckLock(APP_LOCK_FILE);
+	// 检查Lock文件, 防止重复启动
+	CheckLock(APP_LOCK_FILE);
 
-    // 后台Daemon模式启动
-    if(bDaemonLaunch)
-    {
-        DaemonLaunch();
-    }
+	// 后台Daemon模式启动
+	if (bDaemonLaunch)
+	{
+		DaemonLaunch();
+	}
 
-    // 时间优化
-    NowTimeSingleton::Instance()->RefreshNowTime();
-    NowTimeSingleton::Instance()->RefreshNowTimeVal();
+	// 时间优化
+	NowTimeSingleton::Instance()->RefreshNowTime();
+	NowTimeSingleton::Instance()->RefreshNowTimeVal();
 
-    // 设置进程随机数种子
-    CRandomCalculator::Initialize();
+	// 设置进程随机数种子
+	CRandomCalculator::Initialize();
 
-    // 设置USR信号处理, 用于停止和重载配置
-    RegisterSignalHandler(pSigHandler, bEnableQuitSig);
+	// 设置USR信号处理, 用于停止和重载配置
+	RegisterSignalHandler(pSigHandler, bEnableQuitSig);
 
-    // 写入PID文件
-    WritePidFile();
-
-    // 退出时不删除PID文件, TCM需要用PID检查进程状态
-    //atexit(CleanPidFile);
-
+	// 写入PID文件
+	WritePidFile();
 }
 
 void CAppUtility::ShowVersion()
@@ -436,13 +432,7 @@ void CAppUtility::LoadLogConfig(const char* pszConfigFile, const char* pszLogNam
         stConfigFile.CloseFile();
     }
 
-/*
-#ifdef _DEBUG_
-    iLogLevel = LOG_LEVEL_ANY;
-#endif
-*/
-
-    // server log
+    //服务器主日志
     TLogConfig stServerLogConfig;
     memset(&stServerLogConfig, 0, sizeof(stServerLogConfig));
     SAFE_STRCPY(stServerLogConfig.m_szPath, szLogPath, sizeof(stServerLogConfig.m_szPath)-1);
@@ -458,7 +448,7 @@ void CAppUtility::LoadLogConfig(const char* pszConfigFile, const char* pszLogNam
 
     ServerLogSingleton::Instance()->ReloadLogConfig(stServerLogConfig);
 
-    // error log
+    //错误日志
     TLogConfig stErrorLogConfig;
     memset(&stErrorLogConfig, 0, sizeof(stErrorLogConfig));
     char szErrorLogPath[MAX_FILENAME_LENGTH];
@@ -479,7 +469,7 @@ void CAppUtility::LoadLogConfig(const char* pszConfigFile, const char* pszLogNam
 
     ErrorLogSingleton::Instance()->ReloadLogConfig(stErrorLogConfig);
 
-    // Player Log
+    //玩家日志
     TLogConfig stPlayerLogConfig;
     memset(&stPlayerLogConfig, 0, sizeof(stPlayerLogConfig));
     char szPlayLogPath[MAX_FILENAME_LENGTH];
@@ -488,7 +478,7 @@ void CAppUtility::LoadLogConfig(const char* pszConfigFile, const char* pszLogNam
     sprintf(szPlayLogPath, "%s%s", szLogPath, "/player/");
     SAFE_STRCPY(stPlayerLogConfig.m_szPath, szPlayLogPath, sizeof(stPlayerLogConfig.m_szPath) - 1);
 
-    SAFE_STRCPY(stPlayerLogConfig.m_szBaseName, "p", sizeof(stPlayerLogConfig.m_szBaseName)-1);
+    SAFE_STRCPY(stPlayerLogConfig.m_szBaseName, "player_", sizeof(stPlayerLogConfig.m_szBaseName)-1);
     SAFE_STRCPY(stPlayerLogConfig.m_szExtName, ".log", sizeof(stPlayerLogConfig.m_szExtName)-1);
     stPlayerLogConfig.m_iAddDateSuffixType = EADST_DATE_YMD;
     stPlayerLogConfig.m_iLogLevel = iLogLevel;
@@ -535,7 +525,6 @@ void CAppUtility::LoadLogConfig(const char* pszConfigFile, const char* pszLogNam
     sprintf(stStatLogConfig.m_szBaseName, "%s%s", "p_", pszLogName);
     PerformanceStatisticSingleton::Instance()->Initialize(stStatLogConfig.m_szPath, stStatLogConfig.m_szBaseName);
     PerformanceStatisticSingleton::Instance()->Reset();
-
 }
 
 // 注册停止和重载配置信号处理
