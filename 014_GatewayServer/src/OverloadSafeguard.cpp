@@ -99,7 +99,7 @@ int COverloadSafeguardStrategy::Initialize(COverloadSafeguard* pstSafeguard, con
 	m_pstSafegurad = pstSafeguard;
 
 	int iRet = 0;
-	CConfigFile stConfigFile;
+	ConfigFile stConfigFile;
 	iRet = stConfigFile.OpenFile(pszStrategyCfg);
 	if(iRet != 0)
 	{
