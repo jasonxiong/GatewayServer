@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 template <class TYPE>
 class Singleton
 {
@@ -22,9 +21,7 @@ class Singleton
 		Singleton();
 		TYPE m_instance;
 		static Singleton<TYPE> *m_singleton;
-
 };
-
 
 template<class TYPE>
 Singleton<TYPE>* Singleton<TYPE>::m_singleton = NULL;
@@ -34,6 +31,5 @@ Singleton<TYPE>::Singleton()
 {
 
 }
-
 
 #endif /* __SINGLETON_TEMPLATE_HPP__ */

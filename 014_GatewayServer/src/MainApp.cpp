@@ -7,7 +7,7 @@
 #include "MsgStatistic.hpp"
 #include "ExternalOutputThread.hpp"
 
-const unsigned int SVR_VERSION = 20130508;
+const unsigned int SVR_VERSION = 20170628;
 
 
 #define LOTUS_PID_FILE "./GatewayServer.pid"
@@ -91,8 +91,6 @@ int ReadPidFile(const char* pszFilename)
 
     return iPid;
 }
-
-
 
 int main(int argc, char* *argv)
 {
@@ -230,28 +228,6 @@ int main(int argc, char* *argv)
             TRACESTAT("================Begin Statistic================\n");
             LotusStatistic::instance()->RecordAllStat(uiNowTime - uiStatTime);
             LotusStatistic::instance()->ClearAllStat();
-
-#ifdef ENABLE_TNM2_REPORT
-
-            // 上行通道消息量
-            CCodeQueue* pInputCodeQueue = m_pstIOHandler->GetCodeQueueAssemble().m_pstDefaultInputCodeQueue;
-            if (pInputCodeQueue)
-            {
-                TNM2_REPORT_VALUE(14662, pInputCodeQueue->GetUsedLength());
-            }
-
-#ifndef ENABLE_EXTERNAL_OUTPUT_THREAD
-
-            // 下行通道消息量
-            CCodeQueue* pOutputCodeQueue = m_pstIOHandler->GetCodeQueueAssemble().m_pstDefaultOutputCodeQueue;
-            if (pOutputCodeQueue)
-            {
-                TNM2_REPORT_VALUE(14663, pOutputCodeQueue->GetUsedLength());
-            }
-
-#endif
-
-#endif
 
             uiStatTime = uiNowTime;
             TRACESTAT("================End Statistic================\n");

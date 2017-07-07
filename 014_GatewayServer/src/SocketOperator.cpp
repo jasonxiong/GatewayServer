@@ -34,7 +34,6 @@ int CSocketOperator::Accept(const int iListeningFD, unsigned int& ruiIP, unsigne
 int CSocketOperator::Close(int iFD)
 {
     int iRet = close(iFD);
-    //TRACESVR(LOG_LEVEL_DETAIL, "In CIOHandler::Close, FD:%d, Ret:%d\n", iFD, iRet);
 	return iRet;
 }
 
@@ -87,7 +86,6 @@ int CSocketOperator::Send(const int iFD, const int iCodeLength, const char* pszC
 
 	return (int)uiSendBeginOffset;
 }
-
 
 //-1 错误 -2 关闭 0 缓冲区满 >0 接收字节数
 int CSocketOperator::Recv(const int iFD, const int iCodeLength, const char* pszCodeBuffer)
@@ -147,7 +145,6 @@ int CSocketOperator::Recv(const int iFD, const int iCodeLength, const char* pszC
 		}
 
 	}while(iRecvBytes > 0);
-
 
 	if(bClose)
 	{

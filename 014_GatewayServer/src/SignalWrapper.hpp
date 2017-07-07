@@ -157,23 +157,4 @@ private:
 
 };
 
-//class CDominantLogic
-//{
-//public:
-//	//设置应用命令，停止服务、重载配置
-//	void SetAppCmd(const int iAppCmd);
-//	//检查应用命令，停止服务、重载配置
-//	void CheckAppCmd();
-//	//停止服务
-//	static void StopService(int iCmd);
-//	//重载配置
-//	void ReloadConfig();
-//
-//private:
-//
-//	//应用命令
-//	int m_iAppCmd;
-//
-//};
-
 #endif

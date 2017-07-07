@@ -1,8 +1,10 @@
-#include "ConfigFile.hpp"
+#include "SectionConfig.hpp"
 #include "LotusConfigMng.hpp"
 #include "LotusLogAdapter.hpp"
 #include "base.hpp"
 #include "LotusDefine.hpp"
+
+using namespace ServerLib;
 
 CLotusConfigMng::CLotusConfigMng()
 {
@@ -28,7 +30,7 @@ CLotusConfigMng::CLotusConfigMng()
 
 int CLotusConfigMng::LoadPrimaryConfig()
 {
-    CConfigFile stConfigFile;
+	CSectionConfig stConfigFile;
     int iRet = stConfigFile.OpenFile(FILE_LOTUSCONFIG_SERVER);
     if(iRet != 0)
     {

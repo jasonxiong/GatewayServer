@@ -1,18 +1,13 @@
 
 #include <stdio.h>
-
 #include <signal.h>
 
 #include "SignalWrapper.hpp"
-
-
 
 Function_SignalHandler CSignalWrapper::m_pfUSR1 = NULL;
 Function_SignalHandler CSignalWrapper::m_pfUSR2 = NULL;
 int CSignalWrapper::m_iSignalArgUSR1 = 0;
 int CSignalWrapper::m_iSignalArgUSR2 = 0;
-
-
 
 void CSignalWrapper::IgnoreSignalSet()
 {
@@ -73,19 +68,3 @@ void CSignalWrapper::IgnoreSignal(int iSignalValue)
 	sigemptyset(&sig.sa_mask);
 	sigaction(iSignalValue, &sig, NULL);
 }
-
-
-
-//#include <stdlib.h> 
-//
-//void CDominantLogic::StopService(int iCmd)
-//{
-//	exit(1);
-//}
-//
-//int main()
-//{
-//	while(true)
-//	CSignalWrapper::SetHandler_USR1(CDominantLogic::StopService);
-//}
-

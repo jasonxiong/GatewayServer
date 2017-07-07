@@ -10,8 +10,6 @@ int CCodeQueueAssemble::Initialize()
 {
     m_iCodeQueueNumber = 0;
 
-    m_iOutputCodeQueueNumber = 0;
-
     //初始化三个特殊输入CodeQueue
     m_pstDefaultInputCodeQueue = 0;
     m_pstRecordInputCodeQueue = 0;
@@ -44,11 +42,6 @@ int CCodeQueueAssemble::CreateCodeQueue(const TCodeQueueConfig& rstCodeQueueConf
 
     if(rstCodeQueueConfig.m_uiCodeQueueFlag & ECDF_OUTPUT)
     {
-        m_apstOutputCodeQueue[m_iOutputCodeQueueNumber] = rpstCodeQueue;
-        m_abOutputCodeQueueEmpty[m_iOutputCodeQueueNumber] = false;
-        m_aiOutputCodeQueueID[m_iOutputCodeQueueNumber] = rstCodeQueueConfig.m_iCodeQueueID;
-        m_iOutputCodeQueueNumber++;
-
         //Output
         if(rstCodeQueueConfig.m_uiCodeQueueType == ECQT_DEFAULT)
         {

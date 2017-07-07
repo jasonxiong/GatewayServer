@@ -29,17 +29,10 @@ public:
     //All
     int m_iCodeQueueNumber;
     CCodeQueue* m_apstCodeQueue[MAX_CODEQUEUE_NUMBER];
-    CSharedMemory m_astSharedMemory[MAX_CODEQUEUE_NUMBER];
 
     //Input
     CCodeQueue* m_pstDefaultInputCodeQueue;
     CCodeQueue* m_pstRecordInputCodeQueue;
-
-    //Output
-    int m_iOutputCodeQueueNumber;
-    CCodeQueue* m_apstOutputCodeQueue[MAX_CODEQUEUE_NUMBER];
-    bool m_abOutputCodeQueueEmpty[MAX_CODEQUEUE_NUMBER];
-    int m_aiOutputCodeQueueID[MAX_CODEQUEUE_NUMBER];
 
     CCodeQueue* m_pstDefaultOutputCodeQueue;
     CCodeQueue* m_pstRecordOutputCodeQueue;

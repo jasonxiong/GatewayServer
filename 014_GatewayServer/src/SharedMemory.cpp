@@ -7,9 +7,6 @@
 #include "LotusLogAdapter.hpp"
 #include "SharedMemory.hpp"
 
-
-
-
 key_t CSharedMemory::GenerateShmKey(const char* pszKeyFileName, const unsigned char ucKeyPrjID)
 {
 	if(!pszKeyFileName)
@@ -83,7 +80,6 @@ int CSharedMemory::AllocateShmSpace(size_t iSize)
 		return -6;
 	}
 	m_iFreeOffset = sizeof(CSharedMemory);
-	//m_pszFreeMemoryAddress = m_pszInitialMemoryAddress;
 
 	return 0;
 }

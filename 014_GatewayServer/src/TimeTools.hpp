@@ -11,12 +11,6 @@
 #include <sys/time.h>
 #endif
 
-//#ifdef __cplusplus
-//extern "C"
-//{
-//#endif
-
-
 typedef struct
 {
 	int m_iYear;

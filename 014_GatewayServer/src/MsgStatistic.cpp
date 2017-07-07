@@ -29,11 +29,9 @@ CMsgStatistic::~CMsgStatistic()
 int CMsgStatistic::Initialize(const char* pszStatPath, const char* pszStatFileName)
 {
 	int iRet = m_stStatistic.Initialize("LotusServer Msg Stat", MAX_STAT_MSG_NUM);
-
 	if(iRet)
 	{
 		SetErrorNO(EEN_MSG_STATISTIC__STATISTIC_INIT_FAILED);
-
 		return -1;
 	}
 
