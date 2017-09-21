@@ -354,7 +354,7 @@ unsigned int CSectionConfig::GetItemValue(const char *pszSectionName,
 
     if (0 == len)
     {
-        SAFE_STRCPY(pszReturnedString, pszDefaultValue, nSize-1);
+        strncpy(pszReturnedString, pszDefaultValue, nSize-1);
         pszReturnedString[nSize-1] = '\0';
         return strlen(pszReturnedString);
     }
