@@ -85,5 +85,5 @@ link_directories(${LIBRARY_OUTPUT_PATH})
 set (GATEWAY_SVR_EXE    GatewayServer${MT_NAME_TAG})
 
 # sub projects
-add_subdirectory(014_GatewayServer)
+add_subdirectory(GatewayServer)
 
