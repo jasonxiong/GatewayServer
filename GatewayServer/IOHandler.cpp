@@ -8,7 +8,6 @@
 #include "LotusLogAdapter.hpp"
 #include "LotusStatistic.hpp"
 #include "BillWriter.hpp"
-#include "CodeEngine.hpp"
 #include "TimeTools.hpp"
 
 int CIOHandler::m_iAppCmd = 0;
