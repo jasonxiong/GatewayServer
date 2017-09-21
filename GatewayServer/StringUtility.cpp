@@ -10,10 +10,10 @@
 
 #include <string.h>
 #include <stdio.h>
-#include "StringUtility.hpp"
 #include <errno.h>
 #include <iconv.h>
-#include "LogAdapter.hpp"
+
+#include "StringUtility.hpp"
 
 using namespace ServerLib;
 
@@ -85,8 +85,6 @@ int CStringUtility::ConvertCode(char* szInBuffer, size_t uiInLength, char* szOut
 
     if( iconv(handle, pIn, (size_t *)&uiInLength, pOut, (size_t *)&uiOutLength) == (size_t)-1 )
     {
-        //fprintf(stderr, "ConvertToCode: Errno = %d, %s\n", errno, strerror(errno));
-        TRACESVR("ConvertToCode: Errno = %d, %s\n", errno, strerror(errno));
         iconv_close(handle);
         pOriginOutBuffer[uiTotalOutLength - 1] = '\0';
         return -2;
