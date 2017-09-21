@@ -19,6 +19,7 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <sys/ioctl.h>
+#include "ErrorDef.hpp"
 #include "StringUtility.hpp"
 //在这添加ServerLib头文件
 #include "SectionConfig.hpp"
