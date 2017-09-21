@@ -1,7 +1,6 @@
 #include "IOHandler.hpp"
 #include "ConfigAssemble.hpp"
 #include "CodeQueueAssemble.hpp"
-#include "CodeEngine.hpp"
 #include "FDPool.hpp"
 #include "CodeDispatcher.hpp"
 #include "SocketOperator.hpp"
