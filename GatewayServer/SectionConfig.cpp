@@ -25,6 +25,7 @@
 #include "SectionConfig.hpp"
 
 using namespace ServerLib;
+using namespace DeprecatedLib;
 
 /*************************************************
   Function:     CSectionConfig
