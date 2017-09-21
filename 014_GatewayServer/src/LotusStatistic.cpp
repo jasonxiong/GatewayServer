@@ -24,14 +24,5 @@ int CLotusStat::RecordAllStat(unsigned int uiIntervalTime)
         m_uiFailedPushNumber, m_uiOutputPacketNumber, m_uiOutputPacketLength,
         m_uiMaxPopedCodeNumber, m_uiOutputFlashNumber);
 
-#ifdef ENABLE_TNM2_REPORT
-    TNM2_REPORT_VALUE(10532, m_uiInputPacketNumber);
-    TNM2_REPORT_VALUE(10628, m_uiOutputPacketNumber);
-    TNM2_REPORT_VALUE(10629, m_uiInputPacketLength);
-    TNM2_REPORT_VALUE(13536, m_uiOutputPacketLength);
-    TNM2_REPORT_VALUE(13539, 0);
-    TNM2_REPORT_VALUE(13544, m_uiFailedPushNumber);
-#endif
-
     return 0;
 }

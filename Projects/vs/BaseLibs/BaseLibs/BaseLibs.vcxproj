@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\001_ServerLib\3RdParty\gtest-1.6.0;..\..\..\..\001_ServerLib\3RdParty\json-0.5.0;..\..\..\..\001_ServerLib\3RdParty\lua-5.2.2;..\..\..\..\001_ServerLib\3RdParty\protobuf-2.5.0;..\..\..\..\001_ServerLib\3RdParty\pugixml-1.2;..\..\..\..\001_ServerLib\3RdParty\botan-1.10.5;..\..\..\..\001_ServerLib\3RdParty\zeromq-3.2.3;..\..\..\..\001_ServerLib\BaseLibs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
