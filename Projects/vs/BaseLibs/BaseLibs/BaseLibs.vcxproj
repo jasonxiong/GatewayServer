@@ -18,11 +18,79 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\GatewayServer\base.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\BillWriter.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\CodeDispatcher.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\CodeQueue.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\CodeQueueAssemble.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\ConfigAssemble.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\ConfigFile.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\EpollWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\ExternalClientPool.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\ExternalOutputThread.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\FDPool.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\InternalServerPool.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\IOHandler.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\LotusConfigMng.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\LotusListener.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\LotusLogAdapter.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\LotusLogEngine.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\LotusStatistic.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\MainApp.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\MsgStatistic.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\OverloadSafeguard.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\SectionConfig.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\SharedMemory.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\SignalWrapper.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\SocketOperator.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\Statistic.cpp" />
+    <ClCompile Include="..\..\..\..\GatewayServer\TimeTools.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\GatewayServer\base.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\BillWriter.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\CodeDispatcher.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\CodeQueue.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\CodeQueueAssemble.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ConfigAssemble.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ConfigDefine.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ConfigFile.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\EpollWrapper.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ErrorDef.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ExternalClientPool.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ExternalOutputThread.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\FDPool.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\GlobalValue.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\IntegerHash.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\InternalServerPool.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\IOHandler.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusConfigMng.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusDefine.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusListener.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusLogAdapter.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusLogEngine.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\LotusStatistic.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\MsgStatistic.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\OverloadSafeguard.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\SectionConfig.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\SharedMemory.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\ShmObjectCreator.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\SignalWrapper.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\SingletonTemplate.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\SocketOperator.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\Statistic.hpp" />
+    <ClInclude Include="..\..\..\..\GatewayServer\TimeTools.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\GatewayServer\CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9AF49160-76D4-4745-8FFA-F173CEF12801}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>BaseLibs</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>GatewayServer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -146,202 +214,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\001_ServerLib\BaseLibs\DBClientWrapper.cpp.orig" />
-    <None Include="..\..\..\..\014_GatewayServer\conf\LogSetting.tcm" />
-    <None Include="..\..\..\..\014_GatewayServer\conf\LotusCodeQueue.tcm" />
-    <None Include="..\..\..\..\014_GatewayServer\conf\LotusListener.tcm" />
-    <None Include="..\..\..\..\014_GatewayServer\conf\LotusServer.tcm" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\AESCbcEncryptor.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\AppUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\BacktraceInfo.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\Base64.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\BiDirQueue.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\CacheStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\CodeQueue.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\CodeQueueManager.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\ConfigFile.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\DBClientWrapper.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\DecodeStream.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\EncodeStream.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\FileUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_K32.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_K64.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_KStringV32.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\HashUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\lib_md5.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\LineConfig.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\LogAdapter.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\LogFile.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\lz4.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\MsgOverViewStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\MsgStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\NowTime.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\ObjAllocator.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\ObjIdxList.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\ObjStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\oi_tea.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\PasswordEncryptionUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\PerformanceStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\Random.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SectionConfig.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SessionKeyUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SharedMemory.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SignalUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SocketUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SortArray.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\Statistic.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\StringSplitter.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\StringUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\SymmetryEncryption.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\TCPConnector.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\TCPListener.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\TempMemoryMng.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\Thread.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\TimeUtility.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\TimeValue.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\UDPSocket.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\UinPrivManager.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\UnixTime.cpp" />
-    <ClCompile Include="..\..\..\..\001_ServerLib\BaseLibs\ZmqBus.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\base.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\BillWriter.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\CodeDispatcher.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\CodeEngine.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\CodeQueue.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\CodeQueueAssemble.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\ConfigAssemble.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\EpollWrapper.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\ExternalClientPool.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\ExternalOutputThread.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\FDPool.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\InternalServerPool.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\IOHandler.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\LotusConfigMng.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\LotusListener.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\LotusLogAdapter.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\LotusLogEngine.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\LotusStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\MainApp.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\MsgStatistic.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\OverloadSafeguard.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\SharedMemory.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\SignalWrapper.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\SocketOperator.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\Statistic.cpp" />
-    <ClCompile Include="..\..\..\..\014_GatewayServer\src\TimeTools.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\AESCbcEncryptor.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\AppUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\BacktraceInfo.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\Base64.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\BiDirQueue.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\CacheStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\CodeQueue.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\CodeQueueManager.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\CommonDef.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ConfigFile.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\DBClientWrapper.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\DecodeStream.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\EncodeStream.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ErrorDef.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\FileUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\FreqCtrl.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_K32.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_K64.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_KStr.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_KString.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashMap_KStringV32.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\HashUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\Int64Utility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\lib_md5.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\LinearQueue.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\LineConfig.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\LogAdapter.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\LogFile.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\lz4.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\MsgOverViewStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\MsgStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\NowTime.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ObjAllocator.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ObjIdxList.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ObjStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\oi_tea.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\PasswordEncryptionUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\PerformanceStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\PlutoStringUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ProtoDataUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\Random.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SectionConfig.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SessionKeyUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SharedMemory.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ShmObjectCreator.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SignalUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SingletonTemplate.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SocketUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SortAlgorithm.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SortArray.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\StaticIdxList.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\Statistic.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\StringSplitter.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\StringUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\SymmetryEncryption.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\TCPConnector.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\TCPListener.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\TempMemoryMng.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\Thread.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\TimeUtility.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\TimeValue.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\UDPSocket.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\UinPrivManager.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\UnixTime.hpp" />
-    <ClInclude Include="..\..\..\..\001_ServerLib\BaseLibs\ZmqBus.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\base.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\BillWriter.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\CodeDispatcher.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\CodeEngine.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\CodeQueue.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\CodeQueueAssemble.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ConfigAssemble.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ConfigDefine.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\EpollWrapper.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ErrorDef.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ExternalClientPool.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ExternalOutputThread.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\FDPool.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\GlobalValue.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\IntegerHash.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\InternalServerPool.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\IOHandler.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusConfigMng.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusDefine.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusListener.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusLogAdapter.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusLogEngine.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\LotusStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\MsgStatistic.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\OverloadSafeguard.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\SharedMemory.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\ShmObjectCreator.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\SignalWrapper.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\SingletonTemplate.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\SocketOperator.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\Statistic.hpp" />
-    <ClInclude Include="..\..\..\..\014_GatewayServer\src\TimeTools.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\..\001_ServerLib\BaseLibs\ChangeLog.txt" />
-    <Text Include="..\..\..\..\014_GatewayServer\CMakeLists.txt" />
-    <Text Include="..\..\..\..\014_GatewayServer\src\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\..\..\001_ServerLib\BaseLibs\libServerLib.a" />
-    <Library Include="..\..\..\..\001_ServerLib\BaseLibs\libServerLibMT.a" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
